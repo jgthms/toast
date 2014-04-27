@@ -9,11 +9,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
     <link rel="stylesheet" type="text/css" href="{{asset "bower_components/font-awesome/css/font-awesome.min.css"}}">
+    <link rel="stylesheet" type="text/css" href="{{asset "css/fonts.css"}}">
     <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700">
+    <script type="text/javascript">
+      var StreetHubColors = new Array('DC4632','EDA9A1', '152E42', 'F0B649', 'F3EFEB', 'FFFFFF');
+      var FancyColors = new Array('FCE473','F68B39', 'ED6C63', '847BB9', '42AFE3', '97CD76');
+
+      function draw(element, colors){
+        var canvas = document.getElementById(element);
+
+        if (canvas.getContext){
+          var ctx = canvas.getContext('2d');
+          canvas.height = 68;
+          canvas.width = window.innerWidth;
+          a = Math.floor(window.innerWidth / 48) + 1;
+          b= 2;
+
+          for (var i = 0; i < a; i++) {
+            var startX = i * 48;
+            for (var j = 0; j < b; j++) {
+              if (i%2 == 0 && j == 0){
+                var availableColors = colors.slice(0);
+              } else {
+              }
+
+              var startY = j * 48 + (i%2) * 24;
+
+              ctx.beginPath();
+              ctx.moveTo(startX, startY);
+              ctx.lineTo(startX + 48, startY - 24);
+              ctx.lineTo(startX + 48, startY + 24);
+              var chosenColor = Math.floor(Math.random()*availableColors.length);
+              ctx.fillStyle = availableColors[chosenColor];
+              availableColors.splice(chosenColor, 1);
+              ctx.fill();
+
+              if (i%2 != 0 && j == 1) {
+                startY = -24;
+              }
+              ctx.beginPath();
+              ctx.moveTo(startX, startY);
+              ctx.lineTo(startX + 48, startY + 24);
+              ctx.lineTo(startX, startY + 48);
+              ctx.fillStyle = availableColors[Math.floor(Math.random()*availableColors.length)];
+              ctx.fill();
+
+            }
+          }
+        }
+      }
+      document.onreadystatechange = function () {
+        if (document.readyState == 'complete') {
+          draw('top', StreetHubColors);
+          draw('bottom', FancyColors);
+        }
+      }
+    </script>
     {{ghost_head}}
   </head>
   <body class="{{body_class}}">
+    <div class="top">
+      <canvas id="top"></canvas>
+    </div>
     <div class="global">
       <header class="header">
         <section class="info">
@@ -75,6 +133,9 @@
         </p>
       </footer>
       {{ghost_foot}}
+    </div>
+    <div class="bottom">
+      <canvas id="bottom"></canvas>
     </div>
   </body>
 </html>

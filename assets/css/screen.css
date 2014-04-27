@@ -91,6 +91,11 @@ a:visited, .post-title a:visited{ color: #847BB9;} /* Purple */
 a{ transition: background 125ms ease, color 125ms ease;}
 input[type="text"], .post-more a, .fa{ transition: all 125ms ease;}
 
+/* Test */
+.top, .bottom{ border: 0 solid #E6E1DC; border-width: 0 0 1px; height: 68px; left: 0; overflow: hidden; position: absolute; top: 0; width: 100%;}
+.bottom{ border-width: 1px 0 0; bottom: 0; top: auto;}
+body:before, body:after{ display: none;}
+
 @media (min-width: 992px) {
   body{ padding: 136px 0;}
   body:before, body:after{ height: 68px;}
