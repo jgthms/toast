@@ -1,0 +1,26 @@
+{
+  "name": "Toast",
+  "version": "0.0.7",
+  "authors": [
+    "Jeremy Thomas <bbxdesign@gmail.com>"
+  ],
+  "description": "Elements for the Toast theme",
+  "main": "?",
+  "keywords": [
+    "font-awesome",
+    "jquery"
+  ],
+  "license": "MIT",
+  "homepage": "http://jgthms.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "~4.0.3",
+    "jquery": "~2.1.0"
+  }
+}

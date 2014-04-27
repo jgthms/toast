@@ -1,0 +1,28 @@
+{{!< default}}
+<main class="main" role="main">
+  {{#foreach posts}}
+    <article class="{{post_class}}">
+      <header class="post-header">
+        <h3 class="post-title"><a href="{{url}}">{{{title}}}</a></h3>
+        <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time>
+        <p class="post-author">
+          <img src="{{author.image}}">
+          {{author.name}}
+        </p>
+      </header>
+      <section class="post-excerpt">
+        <p>{{excerpt}}&hellip;</p>
+      </section>
+      <p class="post-tags">
+        {{tags}}
+      </p>
+      <p class="post-more">
+        <a href="{{url}}">
+          Read more
+          <i class="fa fa-chevron-right"></i>
+        </a>
+      </p>
+    </article>
+  {{/foreach}}
+  {{pagination}}
+</main>

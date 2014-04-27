@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{meta_title}}</title>
+    <meta name="description" content="{{meta_description}}">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
+    <link rel="stylesheet" type="text/css" href="{{asset "bower_components/font-awesome/css/font-awesome.min.css"}}">
+    <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700">
+    {{ghost_head}}
+  </head>
+  <body class="{{body_class}}">
+    <div class="global">
+      <header class="header">
+        <section class="info">
+          <a class="blog-title" href="{{@blog.url}}">
+            {{@blog.title}}
+          </a>
+          <h2 class="blog-description">{{@blog.description}}</h2>
+        </section>
+        <ul class="menu">
+          <li class="menu-blog">
+            <a href="{{@blog.url}}">
+              <i class="fa fa-asterisk"></i>
+              Blog
+            </a>
+          </li>
+          <li class="menu-code">
+            <a href="{{@blog.url}}">
+              <i class="fa fa-github"></i>
+              Code
+            </a>
+          </li>
+          <li class="menu-about">
+            <a href="{{@blog.url}}">
+              <i class="fa fa-info"></i>
+              About
+            </a>
+          </li>
+        </ul>
+        <ul class="streethub">
+          <li>
+            <a href="http://www.streethub.com">
+              <span>www.</span>
+              streethub.com
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com/StreetHubTech">
+              <span>@</span>
+              StreetHubTech
+            </a>
+          </li>
+        </ul>
+      </header>
+      {{{body}}}
+      <footer class="footer">
+        <p class="poweredby">
+          Powered by <a href="https://ghost.org">Ghost</a>
+        </p>
+        <p>
+          Source code available on
+          <a href="{{@blog.url}}/rss/">
+            GitHub
+          </a>
+          . Subscribe to the
+          <a href="{{@blog.url}}/rss/">
+            RSS feed
+          </a>
+          .
+        </p>
+      </footer>
+      {{ghost_foot}}
+    </div>
+  </body>
+</html>
