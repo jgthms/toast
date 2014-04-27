@@ -24,15 +24,12 @@
           canvas.height = 68;
           canvas.width = window.innerWidth;
           a = Math.floor(window.innerWidth / 48) + 1;
-          b= 2;
+          b = 2;
 
           for (var i = 0; i < a; i++) {
             var startX = i * 48;
+            availableColors = colors.slice(0);
             for (var j = 0; j < b; j++) {
-              if (i%2 == 0 && j == 0){
-                var availableColors = colors.slice(0);
-              } else {
-              }
 
               var startY = j * 48 + (i%2) * 24;
 
@@ -40,9 +37,10 @@
               ctx.moveTo(startX, startY);
               ctx.lineTo(startX + 48, startY - 24);
               ctx.lineTo(startX + 48, startY + 24);
-              var chosenColor = Math.floor(Math.random()*availableColors.length);
-              ctx.fillStyle = availableColors[chosenColor];
-              availableColors.splice(chosenColor, 1);
+              var firstColor = Math.floor(Math.random()*availableColors.length);
+              ctx.fillStyle = availableColors[firstColor];
+              availableColors.splice(firstColor, 1);
+              console.log(availableColors);
               ctx.fill();
 
               if (i%2 != 0 && j == 1) {
@@ -52,7 +50,10 @@
               ctx.moveTo(startX, startY);
               ctx.lineTo(startX + 48, startY + 24);
               ctx.lineTo(startX, startY + 48);
-              ctx.fillStyle = availableColors[Math.floor(Math.random()*availableColors.length)];
+              var secondColor = Math.floor(Math.random()*availableColors.length);
+              ctx.fillStyle = availableColors[secondColor];
+              availableColors.splice(secondColor, 1);
+              console.log(availableColors);
               ctx.fill();
 
             }
@@ -75,26 +76,26 @@
     <div class="global">
       <header class="header">
         <section class="info">
-          <a class="blog-title" href="{{@blog.url}}">
+          <a class="blog-title" href="http://284da052.ngrok.com">
             {{@blog.title}}
           </a>
           <h2 class="blog-description">{{@blog.description}}</h2>
         </section>
         <ul class="menu">
           <li class="menu-blog">
-            <a href="{{@blog.url}}">
+            <a href="http://284da052.ngrok.com">
               <i class="fa fa-asterisk"></i>
               Blog
             </a>
           </li>
           <li class="menu-code">
-            <a href="{{@blog.url}}">
+            <a href="http://284da052.ngrok.com">
               <i class="fa fa-github"></i>
               Code
             </a>
           </li>
           <li class="menu-about">
-            <a href="{{@blog.url}}">
+            <a href="http://284da052.ngrok.com">
               <i class="fa fa-info"></i>
               About
             </a>
